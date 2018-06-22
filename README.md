@@ -1,7 +1,10 @@
 
-## D3.js studies
+## React lab
+#### A playgroud to play with React without build tool
 
-First install browser-sync:
+##### Instruction to run:
+
+First install browser-sync and http-server:
 
 ```
 $ npm install -g browser-sync
