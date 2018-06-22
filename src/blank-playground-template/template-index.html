@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>React lab</title>
+  <style type="text/less">
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {background: hsl(0,30%,95%);}
+  </style>
+</head>
+
+<body>
+  <div id="react-container"></div>
+  <script src="http://localhost:9091/babel/babel-core-5.8.38-browser.min.js"></script>
+  <script src="http://localhost:9091/babel/babel-core-5.8.38-browser-polyfill.min.js"></script>
+  <script src="http://localhost:9091/react/react-16.4.1.production.min.js"></script>
+  <script src="http://localhost:9091/react/react-dom-16.4.1.production.min.js"></script>
+  <script src="http://localhost:9091/less/dist/less.min.js"></script>
+  <script src="http://localhost:9091/lodash/lodash-4.17.10.min.js"></script>
+  <script>
+    console.log(`
+      _: version ${_.VERSION}
+      less: version ${less.version}
+      React: version ${React.version}
+    `);
+  </script>
+  <script type="text/babel" >
+
+    class MyComponent extends React.Component {
+      constructor() {
+        console.log(Date.now(), 'MyComponent has instantiated');
+        super();
+      }
+
+      componentWillMount() {
+        console.log(Date.now(), 'componentWillMount', );
+      }
+
+      componentDidMount() {
+        console.log(Date.now(), 'componentDidMount', );
+      }
+
+      render() {
+        console.log(Date.now(), 'render');
+        return (
+          <div>My Component</div>
+        );
+      }
+    }
+
+    const reactContainer = document.getElementById('react-container');
+    ReactDOM.render(<MyComponent />, reactContainer, ()=>{console.log('Done !');});
+
+  </script>
+</body>
+
+</html>
